@@ -1,27 +1,24 @@
 import React from 'react';
 import './App.css';
-import CardView from './app/card/CardView';
+import CardView from './app/view/CardView';
 import { Button } from "grommet";
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { toggle } from './app/card/cardSlice';
-
-function displayCount(count: number) {
-  return count;
-}
+import { nextCard } from './app/slices/deckSlice';
 
 function App() {
   const dispatch = useAppDispatch();
-  const count = useAppSelector((state) => state.counter.value);
+  const deck = useAppSelector((state) => state.deck.deck);
 
   function click() {
-    dispatch(toggle());
+    dispatch(nextCard());
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <CardView />
-        <p>{displayCount(count)}</p>
+        <p>Draw deck size: {useAppSelector((state) => state.deck.deck.getDrawDeckSize())}</p>
+        <p>Discard deck size: {useAppSelector((state) => state.deck.deck.getDiscardSize())}</p>
         <Button onClick={click} primary label="Draw Card"/>
       </header>
     </div>

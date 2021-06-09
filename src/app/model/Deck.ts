@@ -1,7 +1,7 @@
 import Card from "./Card";
 import { allImageIds } from "./ImageId";
 
-export default class Decks {
+export default class Deck {
     private numCardsOfEachType = 6;
 
     private drawDeck: Card[];
@@ -35,10 +35,22 @@ export default class Decks {
     discard(discardCard: Card) {
         const cardIndex = this.drawDeck.findIndex(card => card.equals(discardCard));
         if (cardIndex >= 0) {
-            this.drawDeck.splice(cardIndex);
+            this.drawDeck.splice(cardIndex, 1);
             this.discardDeck.push(discardCard);
         } else {
             throw new Error(`Tried to discard a card that's not in the deck ${discardCard}`);
         }
+    }
+
+    getTopCard(): Card {
+        return this.drawDeck[0];
+    }
+
+    getDrawDeckSize(): number {
+        return this.drawDeck.length;
+    }
+
+    getDiscardSize(): number {
+        return this.discardDeck.length;
     }
 }
