@@ -2,9 +2,9 @@ import React from 'react';
 import logo from '../../assets/logo.svg';
 import cat from "../../assets/cat.jpg";
 import { useAppSelector } from '../hooks';
-import { ImageId } from './cardSlice';
+import { ImageId } from "../model/ImageId";
 
-function Card() {
+function CardView() {
     const imageState = useAppSelector((state) => state.card.image);
     let imageToUse;
     switch(imageState) {
@@ -18,4 +18,4 @@ function Card() {
     return <img src={imageToUse} className="App-logo" alt="logo" />;
 }
 
-export default Card;
+export default CardView;

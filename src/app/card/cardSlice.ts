@@ -1,10 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../store'
-
-export enum ImageId {
-    cat,
-    react
-}
+import { ImageId } from '../model/ImageId';
 
 interface CardState {
   image: ImageId

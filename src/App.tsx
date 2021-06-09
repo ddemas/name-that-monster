@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Card from './app/card/Card';
+import CardView from './app/card/CardView';
 import { Button } from "grommet";
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { toggle } from './app/card/cardSlice';
@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Card />
+        <CardView />
         <p>{displayCount(count)}</p>
         <Button onClick={click} primary label="Draw Card"/>
       </header>
